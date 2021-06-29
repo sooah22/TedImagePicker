@@ -37,6 +37,7 @@ open class TedImagePickerBaseBuilder<out B : TedImagePickerBaseBuilder<B>>(
     @DrawableRes
     internal var cameraTileImageResId: Int = R.drawable.ic_camera_48dp,
     internal var showCameraTile: Boolean = true,
+    internal var showSelectedMediaList: Boolean = true,
     internal var scrollIndicatorDateFormat: String = "yyyy.MM",
     internal var showTitle: Boolean = true,
     internal var title: String? = null,
@@ -147,6 +148,11 @@ open class TedImagePickerBaseBuilder<out B : TedImagePickerBaseBuilder<B>>(
 
     fun showCameraTile(show: Boolean): B {
         this.showCameraTile = show
+        return this as B
+    }
+
+    fun showSelectedMediaList(show: Boolean): B {
+        this.showSelectedMediaList = show
         return this as B
     }
 

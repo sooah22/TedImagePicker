@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     private fun setNormalMultiButton() {
         binding.btnNormalMulti.setOnClickListener {
             TedImagePicker.with(this)
+                .showSelectedMediaList(false)
                 //.mediaType(MediaType.IMAGE)
                 //.scrollIndicatorDateFormat("YYYYMMDD")
                 //.buttonGravity(ButtonGravity.BOTTOM)

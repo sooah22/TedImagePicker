@@ -300,13 +300,15 @@ internal class TedImagePickerActivity : AppCompatActivity() {
     private fun onMultiMediaClick(uri: Uri) {
         mediaAdapter.toggleMediaSelect(uri)
         binding.layoutContent.items = mediaAdapter.selectedUriList
-        updateSelectedMediaView()
+        if (builder.showSelectedMediaList) {
+            updateSelectedMediaView()
+        }
         setupButtonVisibility()
     }
 
     private fun setupSelectedMediaView() {
         binding.layoutContent.viewSelectedMedia.run {
-            if (mediaAdapter.selectedUriList.size > 0) {
+            if (builder.showSelectedMediaList && mediaAdapter.selectedUriList.size > 0) {
                 layoutParams.height =
                     resources.getDimensionPixelSize(R.dimen.ted_image_picker_selected_view_height)
             } else {
